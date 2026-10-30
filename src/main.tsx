@@ -90,7 +90,6 @@ function App() {
         <section id="home" className="profile" aria-labelledby="name">
           <FluxPhoto src="/assets/images/1x1-photo.jpeg" alt="Kirk Griffin F. Tan" />
           <div className="introduction">
-            <p className="eyebrow">A PERSONAL INTRODUCTION</p>
             <h1 id="name">Hello,<br /><em>I'm Kirk Griffin</em><br />F. Tan.</h1>
             <p className="summary">Motivated Information Technology student with Specialization in Web and Mobile Technology, bringing knowledge of programming, database management, and UI/UX design. Uses creative problem-solving and strong communication to contribute to development tasks, while continuing to learn modern technologies and industry practice.</p>
             <div className="contact" aria-label="Social profiles and contact">
@@ -101,7 +100,7 @@ function App() {
           </div>
         </section>
         <section id="projects" className="projects" aria-labelledby="projects-title">
-          <div className="section-heading"><div><p className="eyebrow">A SELECTION OF MY WORK</p><h2 id="projects-title">My Projects</h2></div><span className="small-note">FEATURED WORK</span></div>
+          <div className="section-heading"><div><h2 id="projects-title">My Projects</h2></div></div>
           <ProjectShowcase />
         </section>
         <div className="sections">
