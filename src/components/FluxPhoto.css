@@ -1,0 +1,2 @@
+.flux-photo { overflow: hidden; }
+.flux-photo-overlay { position: absolute; inset: 0; pointer-events: none; }
