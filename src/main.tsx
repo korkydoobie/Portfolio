@@ -4,9 +4,9 @@ import './style.css';
 import FluxPhoto from './components/FluxPhoto';
 
 const certifications = [
-  { title: "Cisco Certified Support Technician Networking", year: "2025", image: "/assets/images/cisco-ccst.png" },
-  { title: "PMI Project Management Ready", year: "2026", image: "/assets/images/pmi-ready.png" },
-  { title: "Information Technology Specialist in Python", year: "2025", image: "/assets/images/it-specialist-python.png" },
+  { title: "Cisco Certified Support Technician Networking", year: "2025", image: "/assets/images/cisco-ccst.png", verifyUrl: "https://www.credly.com/badges/bb29fd90-74ef-456e-8f9f-1beb0d0c455f/public_url" },
+  { title: "PMI Project Management Ready", year: "2026", image: "/assets/images/pmi-ready.png", verifyUrl: "https://www.credly.com/badges/a239bacb-7a08-4046-9b38-3f65e200de07/public_url" },
+  { title: "Information Technology Specialist in Python", year: "2025", image: "/assets/images/it-specialist-python.png", verifyUrl: "https://www.credly.com/badges/70f300f0-ffcc-4d11-9f4f-aa48211fcee0/public_url" },
 ];
 
 function CertificationBadge({ certificate }: { certificate: (typeof certifications)[number] }) {
@@ -19,6 +19,7 @@ function CertificationBadge({ certificate }: { certificate: (typeof certificatio
       </div>
       <h3>{certificate.title}</h3>
       <p className="cert-year">{certificate.year}</p>
+      <a className="cert-verify" href={certificate.verifyUrl} target="_blank" rel="noopener noreferrer" aria-label={`Verify ${certificate.title} (opens in a new tab)`}>Verify <LinkArrow /></a>
     </li>
   );
 }
@@ -26,6 +27,56 @@ function LinkArrow({ up = false }: { up?: boolean }) {
   return <svg className="link-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
     <path d={up ? "M8 13V3M3 8l5-5 5 5" : "M3 13L13 3M4 3h9v9"} stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
   </svg>;
+}
+
+const projects = [
+  {
+    name: 'SafeZone PH', category: 'WEB & MOBILE APPLICATION',
+    role: 'Frontend Developer, API Integration',
+    description: "A web and mobile GIS-based disaster incident reporting and response system with geofencing alerts for Santa Maria, Bulacan MDRRMO",
+    image: '/assets/images/safezone-preview.png',
+    imageAlt: 'SafeZonePH dashboard showing the Santa Maria map, barangay boundaries, and incident reporting controls',
+    url: 'https://safezoneph.com',
+  },
+  {
+    name: 'Brew-Ha', category: 'WEB APPLICATION',
+    role: 'Frontend Developer, Database Designer',
+    description: 'An E-commerce website designed to serve customers coffee and food.',
+    image: '/assets/images/brew-ha.png', imageAlt: '', url: '',
+  },
+  {
+    name: 'Oppo', category: 'WEB APPLICATION',
+    role: 'Database Designer',
+    description: 'A SIS-integrated internship recommendation and placement system that connects student information and internship opportunities to recommend suitable placements based on students\' qualifications, specialization, and eligibility.',
+    image: '/assets/images/oppo.png', imageAlt: '', url: '',
+  },
+];
+
+function ProjectShowcase() {
+  const [index, setIndex] = React.useState(0);
+  const project = projects[index];
+  return <div className="project-showcase">
+    <div aria-live="polite" aria-atomic="true">
+      <article className="project-feature">
+        <div className="project-art project-preview">
+          {project.image ? <img src={project.image} alt={project.imageAlt} width="1919" height="944" loading="lazy" /> :
+            <div className="project-placeholder">Project preview coming soon</div>}
+        </div>
+        <div className="project-copy">
+          <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+          <p className="eyebrow">{project.category}</p><h3>{project.url ? <a className="project-title-link" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} (opens in a new tab)`}>{project.name} <LinkArrow /></a> : project.name}</h3>
+          <p className="project-description">{project.description}</p>
+          <dl className="project-role"><dt>My role:</dt><dd>{project.role}</dd></dl>
+
+        </div>
+      </article>
+    </div>
+    <nav className="project-navigation" aria-label="Project navigation">
+      <button className="outline-link" type="button" onClick={() => setIndex(value => value - 1)} disabled={index === 0}><span aria-hidden="true">&larr;</span> Previous</button>
+      <span className="project-count">{index + 1} / {projects.length}</span>
+      <button className="outline-link" type="button" onClick={() => setIndex(value => value + 1)} disabled={index === projects.length - 1}>Next <span aria-hidden="true">&rarr;</span></button>
+    </nav>
+  </div>;
 }
 
 function App() {
@@ -50,14 +101,8 @@ function App() {
           </div>
         </section>
         <section id="projects" className="projects" aria-labelledby="projects-title">
-          <div className="section-heading"><div><p className="eyebrow">A SELECTION OF MY WORK</p><h2 id="projects-title">My Projects</h2></div><span className="small-note">01 / FEATURED WORK</span></div>
-          <article className="project-feature">
-            <a className="project-art" href="https://safezoneph.com" target="_blank" rel="noopener noreferrer" aria-label="Visit SafeZonePH">
-              <div className="map-lines" aria-hidden="true"><span className="map-pin">+</span></div>
-              <span className="art-label">WEB & MOBILE / GIS</span><span className="project-monogram">SafeZone<span>PH</span></span><span className="art-bottom">INCIDENT REPORTING & RESPONSE <LinkArrow /></span>
-            </a>
-            <div className="project-copy"><span className="project-index">01</span><p className="eyebrow">WEB & MOBILE APPLICATION</p><h3>SafeZonePH</h3><p className="project-description">A web and mobile GIS-based disaster incident reporting and response system with geofencing alerts for Santa Maria, Bulacan MDRRMO</p><a className="outline-link" href="https://safezoneph.com" target="_blank" rel="noopener noreferrer">Explore project <LinkArrow /></a></div>
-          </article>
+          <div className="section-heading"><div><p className="eyebrow">A SELECTION OF MY WORK</p><h2 id="projects-title">My Projects</h2></div><span className="small-note">FEATURED WORK</span></div>
+          <ProjectShowcase />
         </section>
         <div className="sections">
           <section aria-labelledby="skills"><span className="section-number">01</span><h2 id="skills">Skills</h2><ul className="skills-list">

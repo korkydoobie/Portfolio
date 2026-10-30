@@ -7,3 +7,25 @@
 
 .link-arrow { display: inline-block; width: 14px; height: 14px; flex-shrink: 0; vertical-align: middle; }
 footer a { display: inline-flex; align-items: center; gap: 8px; }
+
+.project-art.project-preview { display: block; min-height: 0; padding: 0; background: #fff; border: 1px solid #e6e4df; }
+.project-preview img { display: block; width: 100%; height: auto; }
+
+.project-navigation { display: flex; align-items: center; justify-content: flex-end; gap: 18px; margin-top: 30px; }
+.project-navigation button { font-family: inherit; color: #252525; background: transparent; cursor: pointer; }
+.project-navigation button:hover:not(:disabled) { background: #e9ebe4; }
+.project-navigation button:focus-visible { outline: 2px solid #454545; outline-offset: 4px; }
+.project-navigation button:disabled { color: #777; border-color: #e4e3dd; cursor: default; }
+.project-count { font-size: 11px; color: #626262; white-space: nowrap; }
+.project-placeholder { display: grid; place-items: center; min-height: 240px; padding: 25px; font-size: 13px; color: #626262; background: #efefe9; text-align: center; }
+@media(max-width:600px) { .project-navigation { justify-content: space-between; gap: 10px; } .project-navigation .outline-link { padding: 12px; gap: 12px; } }
+
+.cert-verify { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+
+.project-role { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin: 0 0 25px; font-size: 12px; line-height: 1.6; }
+.project-role dt { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #626262; }
+.project-role dd { margin: 0; color: #252525; }
+
+.project-title-link { display: inline-flex; align-items: center; gap: 10px; }
+.project-title-link .link-arrow { width: 20px; height: 20px; }
+.project-title-link:hover { text-decoration: underline; text-underline-offset: 5px; }
