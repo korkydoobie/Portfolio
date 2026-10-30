@@ -51,7 +51,7 @@ function App() {
           <p>FEU Institute of Technology · 2027</p>
           <p className="education-degree">Bachelor of Science in Information Technology with Specialization in Web and Mobile Technology</p>
         </section>
-        <section aria-labelledby="projects"><span className="section-number">03</span><h2 id="projects">Projects</h2><p className="placeholder">Projects coming soon.</p></section>
+        <section aria-labelledby="projects"><span className="section-number">03</span><h2 id="projects">Projects</h2><p><a className="contact-item" href="https://safezoneph.com" target="_blank" rel="noopener noreferrer">SafeZonePH <span aria-hidden="true">↗</span></a></p></section>
       </div>
       <section className="certifications" aria-labelledby="certifications-title">
         <span className="section-number">04</span>
@@ -65,12 +65,3 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);
-
-
-
-
-
-
-
-
-
